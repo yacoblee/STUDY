@@ -222,151 +222,88 @@ name 속성의 값을 같거나 다르게 하여도 상관은 없으나, 효율�
 
 
 
+### textarea
+
+- 텍스트 데이터를 입력할 수 있는 게시판 형태의 텍스트 상자 제공.
+인라인 스타일 지정시에는 아래 속성으로 이용하지만, 외부 스타일 적용시 width, height로 지정
+* cols: 텍스트 상자의 너비를 텍스트 단위로 지정.
+* rows: 텍스트 상자의 높이를 텍스트 단위로 지정.
 
 
-### forEach
+### select
 
-- forEach는 콜백함수를 받아온다. array에 들어가는 값마다 forEach()에서 전달한 callback함수를 실행한다.
-
-
-```js
-
-fruits.forEach((fruit, index) => {
-  console.log(fruit, index)})
-
-
-/// 'apple', 0
-/// 'banana', 1
-
+- 콤보박스나 리스트 박스를 구성하기 위한 태그로 목록을 구성하는 option 태그로 구성.
+size나 multiple 속성 지정 시에는 리스트박스 형태로 구현.
+* size: 리스트 박스에 표시될 항목 수 지정.
+* multiple : 목록에 대한 다중 선택 지정.
+* option>value: 서버엥 전송할 실제 데이터 지정.
+ 
+```html
+            <select name="favorite_game" multiple size="3">
+                <!-- favorite(페이버릿) : 좋아하는, 잘하는-->
+                <option value="전략시뮬레이션">전략시뮬레이션</option>
+                <option value="RPG" selected>RPG</option>
+                <option value="FPS">FPS</option>
+                <option value="슈팅게임">슈팅게임</option>
+                <option value="스포츠게임">스포츠게임</option>
+            </select>
 ```
 
-# push, pop, unshift, shift 
+#### optgroup
 
-<Br>
+- option 항목들에 대한 그룹 지정이 가능
+* label: option 그룹에 대한 그룸명을 지정. 단, label은 리스트에 표시는 되지만 선택은 불가.
   
+  ```html
+            <select name="learning_program">
+                <optgroup label="Front-end">
+                    <option value="HTML">HTML</option>
+                    <option value="CSS">CSS</option>
+                    <option value="JavaScript">JavaScript</option>
+                </optgroup>
 
-### push 
-  
-- 배열의 맨 뒤에 추가하는 메서드, 추가 후  배열의 **새로운 길이** 를 반환한다.  
-
-```js
-  
-const fruits = ["apple","banana"]
-
-const fruits2 = fruits
-
-fruits2.push("peach")
-
-console.log(fruits2) // [ 'apple', 'banana', 'peach' ] //새로운 배열의 길이가 아니라 추가된 배열이 나온다.
-
-const fruits3 = fruits.push("kiwi")
-console.log(fruits3) /// 3 /// push()메서드 자체를 변수에 할당하여 console.log를 호출하면 길이가 나온다. 
-  
- ```
-  
-  <br>
-  
-### pop
-- 배열에서 마지막 요소를 제거하고 **그 요소를 반환**한다.
-  
-```js
-  
-const fruits = ["apple","banana"]
-
-console.log(fruits.pop()); ////"banana" 
-console.log(fruits);  /// ["apple"]
-  
-```
-
-<br>
-  
-### unshift 
-- 새로운 요소를 맨 앞쪽에 추가하고 **새로운 길이**를 반환한다.
-  
- ```js
- const fruits = ["apple","banana"]
-
- console.log(fruits.unshift("strawberry", "lemon")) /// 새로운 길이 4가 반환된다. 
- console.log(fruits)  /// [ 'strawberry', 'lemon', 'apple', 'banana' ]
-  
+                <optgroup label="Back-end">
+                    <option value="ASP">ASP</option>
+                    <option value="JSP">JSP</option>
+                    <option value="PHP">PHP</option>
+                </optgroup>
+            </select>
   ```
-  
-  <br>
-  
- ### shift
- -  배열의 첫 번째 요소를 **제거**하고, 제거된 요소를 반환한다.
-  
-  
- ```js
-  
- const fruits = ["apple","banana","kiwi"]
-  
-console.log(fruits.shift()); // 'apple'
-console.log(fruits); /// ['banana', 'kiwi']
-  
- ```
-  
-  
-  <br>
-  
- #### 주의해야할 점! 
-  
- - shift와 unshift는 pop과 push보다 느리다 
-  배열에 아이템들이 들어있을 때 뒤에서부터 빈 공간에 넣었다 지웠다 하기때문에 기존 데이터를 움직이지 않아 빠른 operation이 가능하지만
-  shift와 unshift는 기존데이터들을 같이 움직이기 때문에 배열의 길이가 길면 길수록 느리다.
-  
-  
- <br>
-  
-  
-  
-  # 아이템을 지정한 포지션에서 지우기 
-  
-  ### splice
-  
-  - 배열의 기존 요소를 **삭제 또는 교체 또는 새 요소를 추가** 하여 배열의 내용을 변경한다.
-  
- ```js
-  
-  splice(배열 변경을 시작할index, 배열에서 제거할 요소의 수)
-  
-  ```
-  
-  <br>
-  
-  ```js
-  
-const fruits = ["apple","banana","kiwi"]
-  
-console.log(fruits.splice(0,2)) /// ["apple", "banana"]
-console.log(fruits) /// ["kiwi"]
 
-console.log(fruits.splice(0,1,"orange")) /// 0번째 index에서 하나를 삭제함. ["apple"] 삭제되는 값, 그리고 그 자리에 "orrange"추가
-console.log(fruits) /// [ 'orange', 'banana', 'kiwi' ]
-  
+
+#### datalist
+
+- select 태그와 유사한 콤보상자 형태로 인터페이스가 제공되지만, select 태그와 달리 목록에 존재하는 값만 선택적으로
+입력 가능한 형태가 아니라 입력에 도움을 받을 수 있는 option 태그를 이용하여 선택 가능하게 하거나 직접 입력한 값과
+option 태그에 존재하는 값이 일치하는 형식이 있으면 해당 목록을 보여줌으로써 입력 자동완성 기능을 부여.
+직접 입력도 가능하묘 데이터 전송을 한 이후에는 직접 입력한 값이 브라우저에 의해 저장되어 콤보상자 버튼을 클릭하면 직접 입력한 값도 option 태그를 통해 저장된 목록 하단에 표시 및 자동완성 기능 제공.
+
+* input 태그에 datalist 적용 ㅅ 별도의 type = "list" 시 text 상자 형식 그대로 제공 되며 포커스 지정시 콤보 상자로 표시
+* list 속성 값은 datalist에 지정에 id 식별자와 일치해야만 datalist와 연동 가능.
+
+  ```html
+      <fieldset>
+            <label>현재 거주지
+                <input list="residenceList" name="currentResidence">
+            </label>
+            <!-- 기록이력이 남는 태그 -->
+            <datalist id="residenceList">
+                <option value="수원시"></option>
+                <option value="서울시"></option>
+                <option value="안양시"></option>
+                <option value="성남시"></option>
+                <option value="광주시"></option>
+            </datalist>
+        </fieldset>
+
+
+
   ```
-  
-  
-  <br>
-  
-  ### concat
- - 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환한다.
- 
-  **주의해야할 점**
-  
-  - 기존배열을 변경하지 않는다.
-  - 추가된 **새로운 배열**을 반환한다. 
-  
-  
-  ```js
-  const fruits = ["apple","banana","kiwi"]
-  const fruits2 = ["a", "b"]
-  
-  console.log(fruits.concat(fruits2)); // [ 'orange', 'banana', 'kiwi', 'a', 'b' ]  //새로운 배열 반환!
- 
-  console.log(fruits) /// ["apple","banana","kiwi"] /// 변경되지 않은 기존배열
-  
-  ```
-  
-  
-  
+
+
+
+
+
+
+
+
