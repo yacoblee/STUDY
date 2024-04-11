@@ -11,7 +11,7 @@ target = "_blank" : 새로운 프레임(웹페이지)에 로드.
 <a href="./hamburger/hamburger.html" target="_blank"></a>
 ```
 
-#img 태그
+### img 태그
 
 - 이미지를 웹상에 표시해주는 태그.
 
