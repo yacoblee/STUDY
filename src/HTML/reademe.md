@@ -63,20 +63,58 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
 
 <br>
 
-# Array looping
 
-### for문
+### form 태그
 
-```js
+-폼(form) 태그를 구성하는 태그중의 하나로 입력 형식 지정.
 
-const fruits = ["apple", "banana"]
+-type: 사용자가 입력가능한 형식(text, password, email, radio, checkbox,button, submit, reset, hidden, file) 을 지정.
 
-for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
-}
+    <input 태그의 type 속성 값이 text 인 경우>
+-입력 상자 형태로 구현
 
-///'apple'
-///'banana'
+    -size: 화면상에 보이는 필드폭을 지정. 단, 일반적으로 CSS에서 지정하는 것을 권장.
+    -minlenght: 필드에 입력가능한 최소 글자수 지정. 단, from 태그 내에서 전송(submit) 해야만 브라우저에서 제공되는 유효성 어시스트 확인 가능.
+    -maxlength: 필드에 입력 가능한 최대 글자수 지정. 단, 지정한 max값 보다 한 글자 더 추가 입력 가능함에 주의.
+    -value: 기본적으로 필드에 보여줄 hint 텍스트 지정. 단, 입력을 하여도 hint 텍스트가 자동으로 삭제되지는 않음.
+    placeholder: value 속성과 같이 기본적으로필드에 보여줄 hint 텍스트 지정. 약간의 음영처리, 입력시 자동으로 삭제됨.
+    readonly: 쓰기가 금지되는 읽기 전용 입력 상자/ 차후 스크립트를 통해 속성 설정에 따라 상황에 따른 입력 허용 불가를 지정 가능.
+
+```html
+<div>입력 텍스트1 :
+        <input type="text">
+    </div>
+
+    <div>입력 텍스트2 :
+        <input type="text" size="3">
+    </div>
+
+    <!-- form 태그 내에서 전송(submit)을 해야만 유효성 체크 확인 가능. -->
+    <div>입력 텍스트3 :
+        <input type="text" minlength="5">
+    </div>
+
+    <!--
+        입력 시 텍스트가 maxlength 만큼만 제한되는 것을 바로 확인 가능.
+        ( 한글의 경우 한 글자 더 추가 입력 가능. )
+    -->
+    <div>입력 텍스트4 :
+        <input type="text" maxlength="5">
+    </div>
+
+    <div>입력 텍스트5 :
+        <input type="text" value="텍스트를 입력하세요^^ 저는 자동으로 지워지지 않아요~" size="50">
+    </div>
+
+    <div>입력 텍스트6 :
+        <input type="text" placeholder="텍스트를 입력하세요^^ 저는 자동으로 지워진답니다~" size="50">
+    </div>
+
+    <!-- readonly 속성과 같이 속성명(Property)과 값(Value)이 동일한 경우에는 속성명만 지정 가능. -->
+    <div>입력 텍스트7 :
+        <input type="text" value="읽기 전용 텍스트입니다~" readonly size="50">
+    </div>
+
 
 ```
 
