@@ -162,22 +162,66 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
 
 
 
-### for...of문
+### fieldset
 
-```js
+- form 태그 내에서 여러 컨트롤 내에서 여러 컨트롤 요소들을 그룹화.
 
-for (let fruit of fruits){
+- legend : 그룹화된 fieldset 에 대한 제목 표시
+  * fieldset, legend 는 외형상 보이지 않게 하고 싶다고 하더라도 반드시 설정. css로는 표현 바꿀수있음
+
+'
+```html
+<fieldset>
+            <legend>필수입력</legend>
+
+            <div>
+                <label>이름
+                    <input type="text" name="userName" required>
+                </label>
+            </div>
+</fiedlset> 
+```
+
+<br>
+
+### input
+
+#### input / email
+- 기본적인 이메일 형식에 부합되는지의 여부를 브라우저 차원에서 유효성 검사.
+이메일 형식에 포함되는 @ 의 앞뒤에 들어가는지 정도의 유혀성 체크만 가능.
+
+#### input / radio
+
+- 다중 라디오 버튼 중 하나만 선택 가능한 인터페이스 제공
+radio 단일 요소만 선택 가능하게 하기위해 name 속성의 값을 동일하게 설정해야만 함에 주의.
+* value: DB field에 대응되어 할당되는 데이터.
+
+#### input / checkbox
+
+- 다중 체크박스 버튼을 다중 선택가능한 형태의 인터페이스 제공.
+name 속성의 값을 같거나 다르게 하여도 상관은 없으나, 효율적인 로직을 위해 동일하게 설정하는 것을 권장.
+
+#### input / file
+
+- 파일 업로드 할 수 있는 형태의 인터페이스를 제공.
+파일을 지전하면 선택도니 파일의 로컬 경로를 표시.
+
+#### input / range
+
+- 컨트롤의 정확한 값의 측정이 목적이 아닌 대략적인 비율을 슬라이드나 다이얼 형태로 표시.
+* min: 컨트롤의 최솟값, 미설정시 0
+* max: 컨트롤의 최대값, 미설정시 100
+* value: 컨트롤의 디폴드 설정값
+
   
-  console.log(fruit)
-}
-
-///'apple'
-/// 'banana'
-
+```html
+    <label>화면 밝기
+        <input type="range" min="1" max="10" value="8">
+    </label>
 ```
 
 
-<br>
+
 
 
 ### forEach
