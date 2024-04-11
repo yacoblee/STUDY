@@ -1,4 +1,36 @@
-# image(map, area)
+# HTML 태그
+
+### trarget 태그
+
+- 링크가 열릴 프레임(웹페이지) 지정.
+
+target = "_self" : 현재 프레임(웹페이지)에 로드. 미설정 시 디폴트.
+target = "_blank" : 새로운 프레임(웹페이지)에 로드.
+
+```html
+<a href="./hamburger/hamburger.html" target="_blank"></a>
+```
+
+#img 태그
+
+- 이미지를 웹상에 표시해주는 태그.
+
+src : 이미지 파일의 경로나 URL 지정.
+
+alt(alter) : 잘못된 경로 설정이나 서버등의 문제로 이미지를 정상적으로 로드하지 못하는
+경우 이를 대체하기 위한 문자열 지정.
+
+※ a 태그의 링크 대상은 텍스트뿐만 아니라 브라우저에서 허용하는 범위에서 이미지나 문서, 동영상 등이 가능.
+
+```html
+
+<img src="../image/hamburger_img.JPG" alt="햄버거 이미지">
+``` 
+
+<br>
+
+
+### map, area (이미지관련)태그
 
 - 이미지 클릭 영역을 별도로 지정하고 클릭시 지정된 주소로 호출 설정정
 
@@ -30,37 +62,6 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
 ```
 
 <br>
-
-# trarget 태그
-
-- 링크가 열릴 프레임(웹페이지) 지정.
-
-target = "_self" : 현재 프레임(웹페이지)에 로드. 미설정 시 디폴트.
-target = "_blank" : 새로운 프레임(웹페이지)에 로드.
-
-```html
-<a href="./hamburger/hamburger.html" target="_blank"></a>
-```
-
-#img 태그
-
-- 이미지를 웹상에 표시해주는 태그.
-
-src : 이미지 파일의 경로나 URL 지정.
-
-alt(alter) : 잘못된 경로 설정이나 서버등의 문제로 이미지를 정상적으로 로드하지 못하는
-경우 이를 대체하기 위한 문자열 지정.
-
-※ a 태그의 링크 대상은 텍스트뿐만 아니라 브라우저에서 허용하는 범위에서 이미지나 문서, 동영상 등이 가능.
-
-```html
-
-<img src="../image/hamburger_img.JPG" alt="햄버거 이미지">
-``` 
-
-<br>
-
-
 
 # Array looping
 
