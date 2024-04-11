@@ -1,0 +1,45 @@
+## 증감연산자의 위치
+
+- 증감연산자가 피연산자 앞에 위치 할 때 
+   
+   ex) ++ a 
+   
+   전체 수식 처리하기 전에 적용된다.
+   
+- 증감 연산자가 피연산자 뒤에 위치 할 때
+
+  ex) a ++
+  
+  전체 수식 처리가 끝난 뒤 적용된다.
+  
+  `예시`
+  
+  ```jsx
+  let a = 10;
+  let b = ++a +5;
+  console.log(a,b);   /// 11, 16
+  let c = 10;
+  let d = c++ +5;
+  console.log(c,d);  /// 11, 15
+  ```
+
+
+
+  `예시2`
+  
+  ```jsx
+    let idx = 0;
+    let idx2 = 0;
+    let obj = {["yeon" + ++idx] : idx};
+    let obj2 = {["yeon" + idx++] : idx};
+    console.log(obj);   /// [yeon1 : 1]
+    console.log(obj2);  /// [yeon0 : 1];
+    
+  ```
+  
+  위와 같이 ++idx는 전체 수식 처리하기 전에 적용되어 yeon + 1이 계산 되니까 yeon1이 되고
+  idx ++ 는 전체 수식 처리하고 처리되어 계산하기 전, string만 리턴되어 yeon0 이 나온다! 
+  
+  
+
+

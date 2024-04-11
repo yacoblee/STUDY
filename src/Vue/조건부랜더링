@@ -1,0 +1,103 @@
+
+<br>
+
+V-if와 V-show는 **조건적으로 랜더링**을 진행하지만 랜더링 되는 방식에 큰 차이가 있다.
+
+**v-if**의 경우 조건을 **만족**하면 그 순간에 html 블록이 생성되고, 조건에 만족하지 **않으면** 블록이 삭제된다.
+
+하지만 **v-show**의 경우는 조건 만족 여부에 상관없이 **무조건 html 블록이 생성**되며, 조건을 만족하면 css의 display를 이용해서 화면에 보이게 되고, 조건을 만족하지 않으면 **화면에서 숨기도록** 처리가 된다.
+
+즉, 무조건 랜더링이 진행되는것이다. 
+
+>v-if는 블록 전체를 삭제하고 생성하기 때문에 더 많은 자원을 생성한다. Toggle같이 화면에 자주 일어나는 이벤트는 v-show를 사용하고 일어나는 빈도가 적다면 v-if를 사용하는 것이 좋다.
+
+
+<br>
+
+## ✅ v-if 예제)
+
+```vue
+
+<div v-if="show">yes</div>
+<div v-else>No</div>
+<button @click="toggleShow">Toggle </button>
+//토글 클릭시 변수 show가 false 로 바뀌면서 글자가 no로 변경된다.(else이기 때문에)
+
+<script>
+  data: {
+    show: true
+  },
+  methods: {
+    toggleShow() {
+      this.show = !this.show;
+    }
+  }
+</script>
+
+
+```
+
+**만약에 true일때 많은 테그들을 보여주고 싶다면? Template테그를 사용하여 v-if를 사용해주고, 아래에 보여줄 테그들을 묶어준다! ** 
+
+<br>
+
+```vue
+ 
+<templeate v-if="nuber ===1">
+  	<div>1</div>
+  	<div>2</div>
+  	<div>3</div>
+</templeate>
+<div v-else-if="number ===2">correct</div>
+<div v-else>No</div>
+<button @click="toggleShow">Toggle </button>
+
+
+<script>
+  data: {
+    number: 1
+  },
+  methods: {
+    toggleShow() {
+      this.number++; 
+    }
+  }
+</script>
+```
+
+<br>
+
+만약에 버튼클릭을 한다면 methods의 **toogleShow( )** 함수가 호출되면서 실행된다
+
+number의 값이 1씩 증가하고 2가된다면 조건에 따라 **else-if**가 실행되어 correct가 업데이트된다.
+
+그리고 1이 더 증가한다면 **else**테그가 실행되어 no가 보여진다.
+
+
+<br>
+
+
+## ✅ V-show 예제)
+
+```vue
+
+<div v-show="show">yes</div>
+<button @click="toggle">click</button>
+
+<script>
+  data:{
+    show: false
+  },
+  methods: {
+    toggle() {
+      this.show = !this.show;
+      
+    }
+  }
+</script>
+
+```
+
+처음엔 false이므로 아무것도 출력되지 않지만 click버튼을 누르면
+
+false가 ture로 변경되어 yesr가 보인다! 
