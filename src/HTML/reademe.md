@@ -118,7 +118,48 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
 
 ```
 
+
+    - 입력 컨트롤을 이용해서 사용자로부터 입력 받음 데이터를 서버에 전송하기 ㅜ이해 입력 컨트롤
+    요소들을 그호 ㅏ하고 서버측에 전송할 입력 데이터 연결을 위한 실질적인 중간 매개체 역할을 담당
+    input, button, select, textarea 태그 등으로 구성.
+
+   #### form 태그 속성
+   - actionL 사용자로부터 입력된 데이터를 전송할 서버 url 등을 지정
+   - name: 서버에서 인식 가능한 식별자 지정
+            서버에서의 식별자는 nmae 속성만 가능하며, id는 CSS 나 자바스크립트에서 구분하기 위한 식별자임에 유의.
+   - method: get은 소량의 빠른 데이터 전송, post는 보안에 필요되는 데이터나 대량 데이터 전송에 적합
+   - novalidate: form 그룹에 속해 있는 모든 태그 및 속성에 대한 유효성 검사 해제.
+                form 태그에 지정함으로 브라우저 별로 제공되는 유효성 텍스트와 같은 인터페이스를 스크립트를 통해 일관된 인터페이스로 통합하기 위해
+     form 그룹 차원에서 임시로 지정
+   - value: submit 버튼에 표시할 텍스트 지정. 서버측에서 인식하기 위한 부분은 name 값.
+            
+```html
+
+
+<form action="./html/server.html" name="studentInfo" method="get" novalidate>
+       <div>
+            <label for="named">이름 :</label>
+            <input type="text" id="named" name="named" minlength="3" maxlength="5" required>
+        </div>
+
+        <div>
+            <label for="stNum">학번 :</label>
+            <input type="text" id="stNum" name="stNum" placeholder="2자리만 입력 가능" minlength="2" maxlength="2" required>
+        </div>
+
+        <input type="submit" name="transBtn" value="전송">
+</form>
+
+```
+     
 <br>
+
+
+
+
+
+
+
 
 
 ### for...of문
