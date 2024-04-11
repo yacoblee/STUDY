@@ -1,6 +1,6 @@
-# HTML(태그)
+# image(map, area)
 
-- 배열을 생성할 때 사용하는 리스트 형태의 객체이다.
+- 이미지 클릭 영역을 별도로 지정하고 클릭시 지정된 주소로 호출 설정정
 
 <br>
 
@@ -9,7 +9,10 @@
 # 이미지 설정하기
 
 이미지를 원하는 형태로 분할하여 좌표가 생성된 링크 코드를 자동 완성하여 제공해주는 유틸사이트. Rect, Poly, Circle 형태로 이미지를 분할 가능.
-단, 상대 경로를 지정하는 경우 분할 이미지ㄹ에 대한 링크 설정 시 ㄱ사이트에서 지정하느 것보다는 링크 코드를 로드할 파일에서 직접 링크를 설정하느 것이 안전.
+단, 상대 경로를 지정하는 경우 분할 이미지ㄹ에 대한 링크 설정 시 ㄱ사이트에서 지정하느 것보다는 링크 코드를 로드할 파일에서 직접 링크를 설정하는 것이 안전.
+
+Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
+
 ```html
 
     <img src="../image/paldal-gu_map_img.jpg" alt="체인점 권역 지도" usemap="#image-map">
@@ -28,22 +31,36 @@
 
 <br>
 
-# 배열에 접근하기 
+# trarget 태그
 
+- 링크가 열릴 프레임(웹페이지) 지정.
 
-```js
+target = "_self" : 현재 프레임(웹페이지)에 로드. 미설정 시 디폴트.
+target = "_blank" : 새로운 프레임(웹페이지)에 로드.
 
-const fruits = ["apple", "banana"]
+```html
+<a href="./hamburger/hamburger.html" target="_blank"></a>
+```
 
-console.log(fruits) ///[ 'apple', 'banana' ]
-console.log(fruits.length) /// 2
-console.log(fruits[fruits.length-1]) /// 'banana'
-console.log(fruits[0]) ///'apple'
-console.log(fruits[2])  ///밖에 있는 index접근하면 undefined
+#img 태그
 
+- 이미지를 웹상에 표시해주는 태그.
+
+src : 이미지 파일의 경로나 URL 지정.
+
+alt(alter) : 잘못된 경로 설정이나 서버등의 문제로 이미지를 정상적으로 로드하지 못하는
+경우 이를 대체하기 위한 문자열 지정.
+
+※ a 태그의 링크 대상은 텍스트뿐만 아니라 브라우저에서 허용하는 범위에서 이미지나 문서, 동영상 등이 가능.
+
+```html
+
+<img src="../image/hamburger_img.JPG" alt="햄버거 이미지">
 ``` 
 
 <br>
+
+
 
 # Array looping
 
