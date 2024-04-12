@@ -164,11 +164,38 @@ ol 태그의 자식 태그는 li 태그 외의 다른 태그가 직접 올 수 �
              상황에 따른 입력 허용 및 불가를 설정 가능.
 
 
+#### input 태그의 type 속성 값이 image 인 경우
+
+- input 태그의 type 속성이 submit 인 경우의 기본적인 버튼 형태 대신에 다른
+  이미지를 이용하여 submit 과 동일한 기능을 구현.
+  img 태그와 동일한 src 속성과 alt 속성을 지정하여 이미지 경로와 대체 텍스트 지정.
+```html
+<input type="image" class="btn_img_size" src="./image/submit_btn.png" alt="전송 버튼">
+```
+### button 태그
+
+- input 태그의 type 속성 값이 submit, button, reset 등인 경우와 동일한 동작이 구현 가능.
+  input 태그의 경우 닫는 태그가 없어 지정된 속성 외에는 별도의 컨텐츠를 포함시킬 수 없지만
+  button 태그는 닫는 태그가 있어 button 태그 내에 다른 컨텐츠를 포함 가능하여 좀 더 유연한
+  확장이 가능.
+  input 태그와 같이 type 속성 지정이 가능하며 submit, button, menu, reset 등의 값 할당 가능.
+  ( type 속성 미 지정 시 디폴트는 submit 할당 )
+
+- 버튼에 이미지를 포함시키는 경우 input 태그의 type 속성에 image 값을 지정하는 것과는 달리 이미지를
+   둘러싸는 기본적인 테두리(border)와 배경색(background)이 button 태그에 지정되어 표시되는 것을 확인
+   가능하며 이는 CSS 에서 조정.
+   또한 이 경우 버튼화된 이미지의 크기는 button 태그가 아닌 img 태그를 조정해야 함에 주의.
 
 
 
+### fieldset 태그       
+- form 태그 내에서 여러 컨트롤 요소들을 그룹화.
 
+### legend 태그                                                       
+- 그룹화된 fieldset 에 대한 제목(caption)을 표시.
 
+※ fieldset 과 legend 태그는 외형상 보이지 않게 하고 싶다고 하더라도 반드시 설정.
+   차후 CSS 에서 안보이게 또는 다른 형태로 표현가능.
 
 
 
