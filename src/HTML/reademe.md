@@ -69,16 +69,14 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
 -폼(form) 태그를 구성하는 태그중의 하나로 입력 형식 지정.
 
 -type: 사용자가 입력가능한 형식(text, password, email, radio, checkbox,button, submit, reset, hidden, file) 을 지정.
+input 태그의 type 속성 값이 text 인 경우 입력 상자 형태로 구현
 
-    <input 태그의 type 속성 값이 text 인 경우>
--입력 상자 형태로 구현
-
-    -size: 화면상에 보이는 필드폭을 지정. 단, 일반적으로 CSS에서 지정하는 것을 권장.
-    -minlenght: 필드에 입력가능한 최소 글자수 지정. 단, from 태그 내에서 전송(submit) 해야만 브라우저에서 제공되는 유효성 어시스트 확인 가능.
-    -maxlength: 필드에 입력 가능한 최대 글자수 지정. 단, 지정한 max값 보다 한 글자 더 추가 입력 가능함에 주의.
-    -value: 기본적으로 필드에 보여줄 hint 텍스트 지정. 단, 입력을 하여도 hint 텍스트가 자동으로 삭제되지는 않음.
-    placeholder: value 속성과 같이 기본적으로필드에 보여줄 hint 텍스트 지정. 약간의 음영처리, 입력시 자동으로 삭제됨.
-    readonly: 쓰기가 금지되는 읽기 전용 입력 상자/ 차후 스크립트를 통해 속성 설정에 따라 상황에 따른 입력 허용 불가를 지정 가능.
+-size: 화면상에 보이는 필드폭을 지정. 단, 일반적으로 CSS에서 지정하는 것을 권장.
+-minlenght: 필드에 입력가능한 최소 글자수 지정. 단, from 태그 내에서 전송(submit) 해야만 브라우저에서 제공되는 유효성 어시스트 확인 가능.
+-maxlength: 필드에 입력 가능한 최대 글자수 지정. 단, 지정한 max값 보다 한 글자 더 추가 입력 가능함에 주의.
+-value: 기본적으로 필드에 보여줄 hint 텍스트 지정. 단, 입력을 하여도 hint 텍스트가 자동으로 삭제되지는 않음.
+placeholder: value 속성과 같이 기본적으로필드에 보여줄 hint 텍스트 지정. 약간의 음영처리, 입력시 자동으로 삭제됨.
+readonly: 쓰기가 금지되는 읽기 전용 입력 상자/ 차후 스크립트를 통해 속성 설정에 따라 상황에 따른 입력 허용 불가를 지정 가능.
 
 ```html
 <div>입력 텍스트1 :
@@ -123,13 +121,13 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
     요소들을 그호 ㅏ하고 서버측에 전송할 입력 데이터 연결을 위한 실질적인 중간 매개체 역할을 담당
     input, button, select, textarea 태그 등으로 구성.
 
-   #### form 태그 속성
+#### form 태그 속성
    - actionL 사용자로부터 입력된 데이터를 전송할 서버 url 등을 지정
    - name: 서버에서 인식 가능한 식별자 지정
             서버에서의 식별자는 nmae 속성만 가능하며, id는 CSS 나 자바스크립트에서 구분하기 위한 식별자임에 유의.
    - method: get은 소량의 빠른 데이터 전송, post는 보안에 필요되는 데이터나 대량 데이터 전송에 적합
    - novalidate: form 그룹에 속해 있는 모든 태그 및 속성에 대한 유효성 검사 해제.
-                form 태그에 지정함으로 브라우저 별로 제공되는 유효성 텍스트와 같은 인터페이스를 스크립트를 통해 일관된 인터페이스로 통합하기 위해
+form 태그에 지정함으로 브라우저 별로 제공되는 유효성 텍스트와 같은 인터페이스를 스크립트를 통해 일관된 인터페이스로 통합하기 위해
      form 그룹 차원에서 임시로 지정
    - value: submit 버튼에 표시할 텍스트 지정. 서버측에서 인식하기 위한 부분은 name 값.
             
@@ -151,15 +149,6 @@ Image Map Generator(Free Online Image Map Generator): https://www.image-map.net
 </form>
 
 ```
-     
-<br>
-
-
-
-
-
-
-
 
 
 ### fieldset
