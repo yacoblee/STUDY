@@ -189,13 +189,91 @@ text-decoration 속성은 다른 속성과 마찬가지로 자손에 상속되�
         [href*="co."] {
             text-decoration: line-through;
         }
-<ul>
+
+    <ul>
         <li id="naver"><a href="http://www.naver.com">네이버</a></li>
         <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
         <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
     </ul>
 
 ```
+
+
+### 가상 클래스 선택자
+- 선택자에 의해 지정된 요소가 특정 상태일 때 스타일링 적용.
+가상이라 함은 HTML 코드가 실제 존재하지 않는 상태에서 지정함을 의미.
+
+#### hover
+- 지정된 요소에 마우스 포인터를 올리면 스타일링 적용.
+
+```html
+h1:hover {
+    background-color: aqua;
+}
+form button:hover {
+    fornt-style: italic;
+    font-weight: bold;
+}
+```
+#### focus
+- 링크, 입력상자, 버튼 등에 마우스나 TAB 키로 포커스가 맺혔을 때 스타일 적용.
+웹페이지에서는 손이나 팔이 불편한 장애자를 위해 링크, 입력상자, 버튼 등에 TAB 키로
+포커스를 맞출수 있게 하는 기능이 제공됨
+
+
+#### active
+- 링크나 버튼등을 눌렀을 때 스타일 적용.
+``` html
+a:active {
+background-color: orange;
+}
+```
+#### visited
+- 이미 방문한 링크인 경우에 스타일 적용.
+```html
+a:visited{
+color: red;
+}
+```
+#### checked
+- radio나 checkbox 버튼 등이 체크되었을 때 스타일 적용.(버튼 모양에 대해선 적용불가)
+  * 직접적인 형태 변형은 불가하여 다른 형태로 재구현 하는 것이 일반적
+```html
+input:checked+label{
+    background-color: disque;
+}
+```
+#### target
+- 페이지 내부 링크에 의해 지목된 id 를 가진 요소에 대한 스타일 적용.
+  ```html
+  #title:target{
+      text-decoration: underline;
+  }
+
+  ```
+#### enabled
+- 텍스트 입력상자나 버튼 등이 활성화된 상태일 때 스타일 적용.
+#### disabled
+- 텍스트 입력상자나 버튼 등이 비활성화된 상태일 때 스타일 적용.
+
+#### not(선택자)
+- not 에 의해 선택자가 아닌 요소에 스타일 적용.
+
+```html
+form:not(button){
+    background-color: chartreuse;
+}
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
