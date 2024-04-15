@@ -137,8 +137,65 @@ text-decoration 속성은 다른 속성과 마찬가지로 자손에 상속되�
 
 
 
+### 속성 선택자(Attribute Selectors)
+- 지정된 속성 또는 value 에 의해 요소를 결정하여  스타일링 적용.
+태그를 찾아서 지정하다 보니 다른 css에 비해서 속도가 느리기 때문에 사용을 지양
 
 
+```html
+/* id 속성을 가진 요소. */
+        [id] {
+            background-color: bisque;
+            border: 5;
+        }
+
+        /* input 태그 중 id 속성을 가진 요소. */
+        input[id] {
+            font-weight: bold;
+        }
+
+        /* id 속성이 value 인 요소. */
+        [id=lg] {                           /* Emmet 기능 적용시와 동일하게 value 에 문자열 구분자 생략 가능 */
+            list-style: none;
+        }
+
+        /* value 가 디폴트로 설정된 값이 있다하더라도 명시적 지정이 되어 있지 않으면 미적용. */
+        [target=_self] {
+            text-decoration: none;
+        }
+
+        /* ol 태그 자손 요소중 href 속성을 가진 요소. */
+        ol [href] {
+            font-size: 25px;
+        }
+
+        /* href 속성과 target 속성을 가진 요소. */
+        [href][target] {
+            font-style: italic;
+        }
+
+        /* 지정된 value("font")로 시작되는 class 속성 값을 가진 요소. */
+        [class^=font] {
+            color: green;
+        }
+
+        /* 지정된 value("Size")로 끝나는 class 속성 값을 가진 요소. 매칭 시 대소문자를 구분함에 주의. */
+        [class$=Size] {
+            color: red;
+        }
+
+        /* 지정된 value("co.")가 포함되는 href 속성 값을 가진 요소.
+         value 에 특수문자 . 적용으로 문자열 구분자("") 생략 불가 */
+        [href*="co."] {
+            text-decoration: line-through;
+        }
+<ul>
+        <li id="naver"><a href="http://www.naver.com">네이버</a></li>
+        <li id="daum"><a href="http://www.daum.net" target="_self">다음</a></li>
+        <li id="google"><a href="http://www.google.com" target="_blank">구글</a></li>
+    </ul>
+
+```
 
 
 
